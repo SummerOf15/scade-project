@@ -11,6 +11,8 @@ Some scade examples and a big project(ROB301)
 
 3. Counter
 
-
+### 1.2 TP2.md
+1. vote machine (using three inputs)
+2. vote machine (using input array)
 
    
