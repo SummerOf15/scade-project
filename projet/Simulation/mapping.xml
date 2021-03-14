@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--$ ANSYS SCADE Suite (R) Code Generator version Student 2021 R1 (build 20201118) 
+** Command: scadecg.exe -config G:/CROB301/PROJECT/PROJET/Simulation/config.txt
+** Generation date: 2021-03-14T17:52:31
+*************************************************************$-->
+<mapping>
+  <config>
+    <option name="use_types" value="#off#"/>
+    <option name="imported_root_package" value="#off#"/>
+    <option name="root_package" value="#off#"/>
+    <option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <option name="state_vector" value="#off#"/>
+    <option name="static" value="#off#"/>
+    <option name="separate_io_all" value="#off#"/>
+    <option name="no_separate_io" value="#off#"/>
+    <option name="separate_io" value="#off#"/>
+    <option name="warn_error" value="#off#"/>
+    <option name="short_circuit" value="#off#"/>
+    <option name="wrap_c_ops" value="#off#"/>
+    <option name="input_file" value="G:/CROB301/PROJECT/PROJET/Simulation/scade_model_without_unused.scade"/>
+    <option name="probes" value="#on#"/>
+    <option name="no_observe" value="#off#"/>
+    <option name="observe" value="#off#"/>
+    <option name="debug" value="#on#"/>
+    <option name="user_config" value="./user_macros.h"/>
+    <option name="input_threshold" value="#off#"/>
+    <option name="header" value="#off#"/>
+    <option name="significance_length" value="31"/>
+    <option name="name_length" value="200"/>
+    <option name="globals_prefix" value="#off#"/>
+    <option name="keep_asserts" value="#off#"/>
+    <option name="global_root_context" value="#off#"/>
+    <option name="expall" value="#off#"/>
+    <option name="noexp" value="#off#"/>
+    <option name="exp" value="#off#"/>
+    <option name="target_dir" value="G:/CROB301/PROJECT/PROJET/Simulation"/>
+    <option name="target" value="C"/>
+    <option name="root" value="Doors"/>
+    <option name="auth" value="#off#"/>
+  </config>
+  <model>
+    <predefType id="1" name="bool"/>
+    <predefType id="2" name="char"/>
+    <predefType id="3" name="int8"/>
+    <predefType id="4" name="int16"/>
+    <predefType id="5" name="int32"/>
+    <predefType id="6" name="int64"/>
+    <predefType id="7" name="uint8"/>
+    <predefType id="8" name="uint16"/>
+    <predefType id="9" name="uint32"/>
+    <predefType id="10" name="uint64"/>
+    <predefType id="11" name="float32"/>
+    <predefType id="12" name="float64"/>
+    <predefType id="13" name="size"/>
+    <operator id="14" name="Doors" imported="false" root="true" expanded="false">
+      <input id="15" name="unlock_high_time" clock="false" type="3"/>
+      <input id="16" name="high_to_down_time" clock="false" type="3"/>
+      <input id="17" name="trigger" clock="false" type="1"/>
+      <input id="18" name="gear_extended" clock="false" type="1"/>
+      <input id="19" name="gear_retracted" clock="false" type="1"/>
+      <input id="20" name="down_to_high_time" clock="false" type="3"/>
+      <input id="21" name="lock_high_time" clock="false" type="3"/>
+      <output id="22" name="door_closed" clock="false" type="1"/>
+      <output id="23" name="door_open" clock="false" type="1"/>
+      <automaton id="24" name="SM1">
+        <state id="25" name="open_door" initial="false" final="false" default="false">
+          <local id="26" name="_L1" clock="false" type="1"/>
+          <local id="27" name="_L2" clock="false" type="1"/>
+          <fork id="28" name="1" kind="strong">
+            <transition id="29" dest="41"/>
+          </fork>
+        </state>
+        <state id="30" name="close_door" initial="true" final="false" default="false">
+          <local id="31" name="_L1" clock="false" type="1"/>
+          <local id="32" name="_L2" clock="false" type="1"/>
+          <fork id="33" name="1" kind="strong">
+            <times id="34" name="5"/>
+            <transition id="35" dest="36"/>
+          </fork>
+        </state>
+        <state id="36" name="Intermediate1" initial="false" final="false" default="false">
+          <local id="37" name="_L1" clock="false" type="1"/>
+          <fork id="38" name="1" kind="strong">
+            <times id="39" name="4"/>
+            <transition id="40" dest="25"/>
+          </fork>
+        </state>
+        <state id="41" name="State4" initial="false" final="false" default="false">
+          <local id="42" name="_L1" clock="false" type="1"/>
+          <fork id="43" name="1" kind="strong">
+            <times id="44" name="14"/>
+            <transition id="45" dest="30"/>
+          </fork>
+        </state>
+      </automaton>
+    </operator>
+  </model>
+  <generated>
+    <c>
+      <file id="46" name="Doors.h">
+        <function id="47" name="Doors_init">
+          <parameter id="48" name="outC" type="54" pointer="true"/>
+        </function>
+        <function id="49" name="Doors_reset">
+          <parameter id="50" name="outC" type="54" pointer="true"/>
+        </function>
+        <function id="51" name="Doors">
+          <parameter id="52" name="inC" type="88" pointer="true"/>
+          <parameter id="53" name="outC" type="54" pointer="true"/>
+        </function>
+        <struct id="54" name="outC_Doors">
+          <field id="55" name="door_closed" type="142" pointer="false"/>
+          <field id="56" name="door_open" type="142" pointer="false"/>
+          <field id="57" name="init" type="142" pointer="false"/>
+          <field id="58" name="init1" type="142" pointer="false"/>
+          <field id="59" name="init2" type="142" pointer="false"/>
+          <field id="60" name="v3_times_5_int8" type="131" pointer="false"/>
+          <field id="61" name="v3_times_4_int8" type="131" pointer="false"/>
+          <field id="62" name="v3_times_14_int8" type="131" pointer="false"/>
+          <field id="63" name="SM1_state_nxt" type="97" pointer="false"/>
+          <field id="64" name="SM1_reset_act" type="142" pointer="false"/>
+          <field id="65" name="SM1_reset_nxt" type="142" pointer="false"/>
+          <field id="66" name="SM1_state_sel" type="97" pointer="false"/>
+          <field id="67" name="SM1_state_act" type="97" pointer="false"/>
+          <field id="68" name="o_times_5_int8" type="142" pointer="false"/>
+          <field id="69" name="c_times_5_int8" type="142" pointer="false"/>
+          <field id="70" name="n_times_5_int8" type="131" pointer="false"/>
+          <field id="71" name="v4_times_5_int8" type="131" pointer="false"/>
+          <field id="72" name="o_times_4_int8" type="142" pointer="false"/>
+          <field id="73" name="c_times_4_int8" type="142" pointer="false"/>
+          <field id="74" name="n_times_4_int8" type="131" pointer="false"/>
+          <field id="75" name="v4_times_4_int8" type="131" pointer="false"/>
+          <field id="76" name="o_times_14_int8" type="142" pointer="false"/>
+          <field id="77" name="c_times_14_int8" type="142" pointer="false"/>
+          <field id="78" name="n_times_14_int8" type="131" pointer="false"/>
+          <field id="79" name="v4_times_14_int8" type="131" pointer="false"/>
+          <field id="80" name="_L2_open_door_SM1" type="142" pointer="false"/>
+          <field id="81" name="_L1_open_door_SM1" type="142" pointer="false"/>
+          <field id="82" name="_L2_close_door_SM1" type="142" pointer="false"/>
+          <field id="83" name="_L1_close_door_SM1" type="142" pointer="false"/>
+          <field id="84" name="_L1_Intermediate1_SM1" type="142" pointer="false"/>
+          <field id="85" name="_L1_State4_SM1" type="142" pointer="false"/>
+          <field id="86" name="SM1_fired_strong" type="102" pointer="false"/>
+          <field id="87" name="SM1_fired" type="102" pointer="false"/>
+        </struct>
+        <struct id="88" name="inC_Doors">
+          <field id="89" name="unlock_high_time" type="131" pointer="false"/>
+          <field id="90" name="high_to_down_time" type="131" pointer="false"/>
+          <field id="91" name="trigger" type="142" pointer="false"/>
+          <field id="92" name="gear_extended" type="142" pointer="false"/>
+          <field id="93" name="gear_retracted" type="142" pointer="false"/>
+          <field id="94" name="down_to_high_time" type="131" pointer="false"/>
+          <field id="95" name="lock_high_time" type="131" pointer="false"/>
+        </struct>
+      </file>
+      <file id="96" name="kcg_types.h">
+        <enum id="97" name="SSM_ST_SM1" tagName="kcg_tag_SSM_ST_SM1">
+          <value id="98" name="SSM_st_open_door_SM1"/>
+          <value id="99" name="SSM_st_close_door_SM1"/>
+          <value id="100" name="SSM_st_Intermediate1_SM1"/>
+          <value id="101" name="SSM_st_State4_SM1"/>
+        </enum>
+        <enum id="102" name="SSM_TR_SM1" tagName="kcg_tag_SSM_TR_SM1">
+          <value id="103" name="SSM_TR_no_trans_SM1"/>
+          <value id="104" name="SSM_TR_open_door_State4_1_open_door_SM1"/>
+          <value id="105" name="SSM_TR_close_door_Intermediate1_1_close_door_SM1"/>
+          <value id="106" name="SSM_TR_Intermediate1_open_door_1_Intermediate1_SM1"/>
+          <value id="107" name="SSM_TR_State4_close_door_1_State4_SM1"/>
+        </enum>
+        <macro id="108" name="kcg_assign_array"/>
+        <macro id="109" name="kcg_assign_struct"/>
+        <macro id="110" name="kcg_lnot_uint8"/>
+        <macro id="111" name="kcg_lnot_uint16"/>
+        <macro id="112" name="kcg_lnot_uint32"/>
+        <macro id="113" name="kcg_lnot_uint64"/>
+        <macro id="114" name="kcg_lsl_uint8"/>
+        <macro id="115" name="kcg_lsl_uint16"/>
+        <macro id="116" name="kcg_lsl_uint32"/>
+        <macro id="117" name="kcg_lsl_uint64"/>
+        <macro id="118" name="kcg_true"/>
+        <macro id="119" name="kcg_false"/>
+        <macro id="120" name="kcg_lit_int8"/>
+        <macro id="121" name="kcg_lit_int16"/>
+        <macro id="122" name="kcg_lit_int32"/>
+        <macro id="123" name="kcg_lit_int64"/>
+        <macro id="124" name="kcg_lit_uint8"/>
+        <macro id="125" name="kcg_lit_uint16"/>
+        <macro id="126" name="kcg_lit_uint32"/>
+        <macro id="127" name="kcg_lit_uint64"/>
+        <macro id="128" name="kcg_lit_size"/>
+        <macro id="129" name="kcg_lit_float64"/>
+        <macro id="130" name="kcg_lit_float32"/>
+        <predefType id="131" name="kcg_int8"/>
+        <predefType id="132" name="kcg_int16"/>
+        <predefType id="133" name="kcg_int32"/>
+        <predefType id="134" name="kcg_int64"/>
+        <predefType id="135" name="kcg_uint8"/>
+        <predefType id="136" name="kcg_uint16"/>
+        <predefType id="137" name="kcg_uint32"/>
+        <predefType id="138" name="kcg_uint64"/>
+        <predefType id="139" name="kcg_size"/>
+        <predefType id="140" name="kcg_float64"/>
+        <predefType id="141" name="kcg_float32"/>
+        <predefType id="142" name="kcg_bool"/>
+        <predefType id="143" name="kcg_char"/>
+        <macro id="144" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="145" name="kcg_consts.h"/>
+      <file id="146" name="kcg_sensors.h"/>
+    </c>
+    <map srcId="140" dstId="129" role="wrapped-lit"/>
+    <map srcId="141" dstId="130" role="wrapped-lit"/>
+    <map srcId="139" dstId="128" role="wrapped-lit"/>
+    <map srcId="138" dstId="127" role="wrapped-lit"/>
+    <map srcId="138" dstId="113" role="wrapped-lnot"/>
+    <map srcId="138" dstId="117" role="wrapped-lsl"/>
+    <map srcId="137" dstId="126" role="wrapped-lit"/>
+    <map srcId="137" dstId="112" role="wrapped-lnot"/>
+    <map srcId="137" dstId="116" role="wrapped-lsl"/>
+    <map srcId="136" dstId="125" role="wrapped-lit"/>
+    <map srcId="136" dstId="111" role="wrapped-lnot"/>
+    <map srcId="136" dstId="115" role="wrapped-lsl"/>
+    <map srcId="135" dstId="124" role="wrapped-lit"/>
+    <map srcId="135" dstId="110" role="wrapped-lnot"/>
+    <map srcId="135" dstId="114" role="wrapped-lsl"/>
+    <map srcId="134" dstId="123" role="wrapped-lit"/>
+    <map srcId="133" dstId="122" role="wrapped-lit"/>
+    <map srcId="132" dstId="121" role="wrapped-lit"/>
+    <map srcId="131" dstId="120" role="wrapped-lit"/>
+    <map srcId="85" dstId="67" role="clock"/>
+    <map srcId="85" dstId="101" role="clock-value"/>
+    <map srcId="84" dstId="67" role="clock"/>
+    <map srcId="84" dstId="100" role="clock-value"/>
+    <map srcId="83" dstId="67" role="clock"/>
+    <map srcId="83" dstId="99" role="clock-value"/>
+    <map srcId="82" dstId="67" role="clock"/>
+    <map srcId="82" dstId="99" role="clock-value"/>
+    <map srcId="81" dstId="67" role="clock"/>
+    <map srcId="81" dstId="98" role="clock-value"/>
+    <map srcId="80" dstId="67" role="clock"/>
+    <map srcId="80" dstId="98" role="clock-value"/>
+    <map srcId="79" dstId="66" role="clock"/>
+    <map srcId="79" dstId="101" role="clock-value"/>
+    <map srcId="78" dstId="66" role="clock"/>
+    <map srcId="78" dstId="101" role="clock-value"/>
+    <map srcId="77" dstId="66" role="clock"/>
+    <map srcId="77" dstId="101" role="clock-value"/>
+    <map srcId="76" dstId="66" role="clock"/>
+    <map srcId="76" dstId="101" role="clock-value"/>
+    <map srcId="75" dstId="66" role="clock"/>
+    <map srcId="75" dstId="100" role="clock-value"/>
+    <map srcId="74" dstId="66" role="clock"/>
+    <map srcId="74" dstId="100" role="clock-value"/>
+    <map srcId="73" dstId="66" role="clock"/>
+    <map srcId="73" dstId="100" role="clock-value"/>
+    <map srcId="72" dstId="66" role="clock"/>
+    <map srcId="72" dstId="100" role="clock-value"/>
+    <map srcId="71" dstId="66" role="clock"/>
+    <map srcId="71" dstId="99" role="clock-value"/>
+    <map srcId="70" dstId="66" role="clock"/>
+    <map srcId="70" dstId="99" role="clock-value"/>
+    <map srcId="69" dstId="66" role="clock"/>
+    <map srcId="69" dstId="99" role="clock-value"/>
+    <map srcId="68" dstId="66" role="clock"/>
+    <map srcId="68" dstId="99" role="clock-value"/>
+    <map srcId="62" dstId="66" role="clock"/>
+    <map srcId="62" dstId="101" role="clock-value"/>
+    <map srcId="61" dstId="66" role="clock"/>
+    <map srcId="61" dstId="100" role="clock-value"/>
+    <map srcId="60" dstId="66" role="clock"/>
+    <map srcId="60" dstId="99" role="clock-value"/>
+  </generated>
+  <map modelId="29" generatedId="104"/>
+  <map modelId="35" generatedId="105"/>
+  <map modelId="40" generatedId="106"/>
+  <map modelId="36" generatedId="100"/>
+  <map modelId="25" generatedId="98"/>
+  <map modelId="24" generatedId="103" role="autom-no-trans-enum"/>
+  <map modelId="45" generatedId="107"/>
+  <map modelId="41" generatedId="101"/>
+  <map modelId="30" generatedId="99"/>
+  <map modelId="14" generatedId="48" role="context-parameter"/>
+  <map modelId="14" generatedId="47" role="init-method"/>
+  <map modelId="14" generatedId="50" role="context-parameter"/>
+  <map modelId="14" generatedId="49" role="reset-method"/>
+  <map modelId="14" generatedId="52" role="input-struct-parameter"/>
+  <map modelId="21" generatedId="95"/>
+  <map modelId="20" generatedId="94"/>
+  <map modelId="19" generatedId="93"/>
+  <map modelId="18" generatedId="92"/>
+  <map modelId="17" generatedId="91"/>
+  <map modelId="16" generatedId="90"/>
+  <map modelId="15" generatedId="89"/>
+  <map modelId="14" generatedId="88" role="input-struct-type"/>
+  <map modelId="14" generatedId="53" role="context-parameter"/>
+  <map modelId="24" generatedId="87" role="autom-weak-transition"/>
+  <map modelId="24" generatedId="86" role="autom-strong-transition"/>
+  <map modelId="42" generatedId="85"/>
+  <map modelId="37" generatedId="84"/>
+  <map modelId="31" generatedId="83"/>
+  <map modelId="32" generatedId="82"/>
+  <map modelId="26" generatedId="81"/>
+  <map modelId="27" generatedId="80"/>
+  <map modelId="24" generatedId="67" role="autom-active-state"/>
+  <map modelId="24" generatedId="66" role="autom-selected-state"/>
+  <map modelId="24" generatedId="65" role="autom-next-reset"/>
+  <map modelId="24" generatedId="64" role="autom-active-reset"/>
+  <map modelId="24" generatedId="63" role="autom-next-state"/>
+  <map modelId="44" generatedId="62" role="memory"/>
+  <map modelId="39" generatedId="61" role="memory"/>
+  <map modelId="34" generatedId="60" role="memory"/>
+  <map modelId="44" generatedId="59" role="init"/>
+  <map modelId="39" generatedId="58" role="init"/>
+  <map modelId="34" generatedId="57" role="init"/>
+  <map modelId="23" generatedId="56"/>
+  <map modelId="22" generatedId="55"/>
+  <map modelId="14" generatedId="54" role="context-type"/>
+  <map modelId="14" generatedId="46" role="interface-file"/>
+  <map modelId="14" generatedId="51" role="cycle-method"/>
+  <map modelId="24" generatedId="102" role="autom-transitions-type"/>
+  <map modelId="24" generatedId="97" role="autom-states-type"/>
+  <map modelId="2" generatedId="143"/>
+  <map modelId="1" generatedId="142"/>
+  <map modelId="12" generatedId="140"/>
+  <map modelId="11" generatedId="141"/>
+  <map modelId="13" generatedId="139"/>
+  <map modelId="10" generatedId="138"/>
+  <map modelId="9" generatedId="137"/>
+  <map modelId="8" generatedId="136"/>
+  <map modelId="7" generatedId="135"/>
+  <map modelId="6" generatedId="134"/>
+  <map modelId="5" generatedId="133"/>
+  <map modelId="4" generatedId="132"/>
+  <map modelId="3" generatedId="131"/>
+</mapping>
+<!--$ ANSYS SCADE Suite (R) Code Generator version Student 2021 R1 (build 20201118) 
+** mapping.xml
+** Generation date: 2021-03-14T17:52:31
+*************************************************************$-->

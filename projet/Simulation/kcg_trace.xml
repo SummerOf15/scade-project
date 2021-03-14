@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <Model commandLine="" date="">
+    <Option name="use_types" value="#off#"/>
+    <Option name="imported_root_package" value="#off#"/>
+    <Option name="root_package" value="#off#"/>
+    <Option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <Option name="state_vector" value="#off#"/>
+    <Option name="static" value="#off#"/>
+    <Option name="separate_io_all" value="#off#"/>
+    <Option name="no_separate_io" value="#off#"/>
+    <Option name="separate_io" value="#off#"/>
+    <Option name="warn_error" value="#off#"/>
+    <Option name="short_circuit" value="#off#"/>
+    <Option name="wrap_c_ops" value="#off#"/>
+    <Option name="input_file" value="G:/CROB301/PROJECT/PROJET/Simulation/scade_model_without_unused.scade"/>
+    <Option name="probes" value="#on#"/>
+    <Option name="no_observe" value="#off#"/>
+    <Option name="observe" value="#off#"/>
+    <Option name="debug" value="#on#"/>
+    <Option name="user_config" value="./user_macros.h"/>
+    <Option name="input_threshold" value="#off#"/>
+    <Option name="header" value="#off#"/>
+    <Option name="significance_length" value="31"/>
+    <Option name="name_length" value="200"/>
+    <Option name="globals_prefix" value="#off#"/>
+    <Option name="keep_asserts" value="#off#"/>
+    <Option name="global_root_context" value="#off#"/>
+    <Option name="expall" value="#off#"/>
+    <Option name="noexp" value="#off#"/>
+    <Option name="exp" value="#off#"/>
+    <Option name="target_dir" value="G:/CROB301/PROJECT/PROJET/Simulation"/>
+    <Option name="target" value="C"/>
+    <Option name="root" value="Doors"/>
+    <Option name="auth" value="#off#"/>
+    <RootNode headerFile="Doors.h" scadeName="Doors" targetCycleFct="Doors" targetInitFct="Doors_reset" targetInitializationFct="Doors_init">
+      <Input inCtx="true" scadeName="unlock_high_time" scadeType="int8" targetName="unlock_high_time" targetType="kcg_int8"/>
+      <Input inCtx="true" scadeName="high_to_down_time" scadeType="int8" targetName="high_to_down_time" targetType="kcg_int8"/>
+      <Input inCtx="true" scadeName="trigger" scadeType="bool" targetName="trigger" targetType="kcg_bool"/>
+      <Input inCtx="true" scadeName="gear_extended" scadeType="bool" targetName="gear_extended" targetType="kcg_bool"/>
+      <Input inCtx="true" scadeName="gear_retracted" scadeType="bool" targetName="gear_retracted" targetType="kcg_bool"/>
+      <Input inCtx="true" scadeName="down_to_high_time" scadeType="int8" targetName="down_to_high_time" targetType="kcg_int8"/>
+      <Input inCtx="true" scadeName="lock_high_time" scadeType="int8" targetName="lock_high_time" targetType="kcg_int8"/>
+      <Output inCtx="true" scadeName="door_closed" scadeType="bool" targetName="door_closed" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="door_open" scadeType="bool" targetName="door_open" targetType="kcg_bool"/>
+      <Automaton scadeName="SM1" targetStatesType="SSM_ST_SM1" targetTransitionsType="SSM_TR_SM1">
+        <State scadeName="open_door" targetName="SSM_st_open_door_SM1">
+          <Local clockVal="SSM_st_open_door_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_open_door_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_open_door_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_open_door_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="State4" targetName="SSM_TR_open_door_State4_1_open_door_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="close_door" targetName="SSM_st_close_door_SM1">
+          <Local clockVal="SSM_st_close_door_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_close_door_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_close_door_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_close_door_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="5">
+                <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_5_int8" targetType="kcg_int8"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="Intermediate1" targetName="SSM_TR_close_door_Intermediate1_1_close_door_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="Intermediate1" targetName="SSM_st_Intermediate1_SM1">
+          <Local clockVal="SSM_st_Intermediate1_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_Intermediate1_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="4">
+                <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_4_int8" targetType="kcg_int8"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="open_door" targetName="SSM_TR_Intermediate1_open_door_1_Intermediate1_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="State4" targetName="SSM_st_State4_SM1">
+          <Local clockVal="SSM_st_State4_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_State4_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="14">
+                <Init inCtx="true" targetName="init2" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_14_int8" targetType="kcg_int8"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="close_door" targetName="SSM_TR_State4_close_door_1_State4_SM1"/>
+          </Fork>
+        </State>
+        <ActiveState inCtx="true" targetName="SM1_state_act"/>
+        <SelectedState inCtx="true" targetName="SM1_state_sel"/>
+        <NextState inCtx="true" mem="true" targetName="SM1_state_nxt"/>
+        <ResetActiveState inCtx="true" mem="true" targetName="SM1_reset_act"/>
+        <ResetNextState inCtx="true" mem="true" targetName="SM1_reset_nxt"/>
+        <StrongTransition inCtx="true" targetName="SM1_fired_strong"/>
+        <WeakTransition inCtx="true" targetName="SM1_fired"/>
+      </Automaton>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init2" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="v3_times_5_int8" targetType="kcg_int8"/>
+      <Memory inCtx="true" targetName="v3_times_4_int8" targetType="kcg_int8"/>
+      <Memory inCtx="true" targetName="v3_times_14_int8" targetType="kcg_int8"/>
+      <Memory inCtx="true" targetName="SM1_state_nxt" targetType="SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_sel" targetType="SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_act" targetType="SSM_ST_SM1"/>
+      <OutCtxType targetName="outC_Doors"/>
+      <InCtxType targetName="inC_Doors"/>
+    </RootNode>
+    <PredefType scadeName="int8" targetName="kcg_int8"/>
+    <PredefType scadeName="int16" targetName="kcg_int16"/>
+    <PredefType scadeName="int32" targetName="kcg_int32"/>
+    <PredefType scadeName="int64" targetName="kcg_int64"/>
+    <PredefType scadeName="uint8" targetName="kcg_uint8"/>
+    <PredefType scadeName="uint16" targetName="kcg_uint16"/>
+    <PredefType scadeName="uint32" targetName="kcg_uint32"/>
+    <PredefType scadeName="uint64" targetName="kcg_uint64"/>
+    <PredefType scadeName="size" targetName="kcg_size"/>
+    <PredefType scadeName="float32" targetName="kcg_float32"/>
+    <PredefType scadeName="float64" targetName="kcg_float64"/>
+    <PredefType scadeName="bool" targetName="kcg_bool"/>
+    <PredefType scadeName="char" targetName="kcg_char"/>
+  </Model>

@@ -1,0 +1,62 @@
+$************** ANSYS(R) SCADE Suite(R) - SCADETOC - Version Student 2021 R1 (build 20201118T195152) **************
+** Generation date: 2021-03-14T17:52:31
+** Command: scade -code "G:\CROB301\PROJECT\PROJET\projet.etp" -root Doors -conf Simulation -sim -all
+*************************************************************$
+*** Generated Files Information (GENFIL): KCG- Generated files
+  at file G:\CROB301\PROJECT\PROJET\Simulation\mapping.xml, line 0, character 0
+ ~mapping.xml
+  at file G:\CROB301\PROJECT\PROJET\Simulation\kcg_metrics.txt, line 0, character 0
+ ~kcg_metrics.txt
+  at file G:\CROB301\PROJECT\PROJET\Simulation\Doors.c, line 0, character 0
+ ~Doors.c
+  at file G:\CROB301\PROJECT\PROJET\Simulation\Doors.h, line 0, character 0
+ ~Doors.h
+  at file G:\CROB301\PROJECT\PROJET\Simulation\kcg_types.h, line 0, character 0
+ ~kcg_types.h
+  at file G:\CROB301\PROJECT\PROJET\Simulation\kcg_consts.h, line 0, character 0
+ ~kcg_consts.h
+  at file G:\CROB301\PROJECT\PROJET\Simulation\kcg_sensors.h, line 0, character 0
+ ~kcg_sensors.h
+  at file G:\CROB301\PROJECT\PROJET\Simulation\kcg_types.c, line 0, character 0
+ ~kcg_types.c
+  at file G:\CROB301\PROJECT\PROJET\Simulation\kcg_consts.c, line 0, character 0
+ ~kcg_consts.c
+  at file G:\CROB301\PROJECT\PROJET\Simulation\config.txt, line 0, character 0
+ ~config.txt
+*** Generated Files Information (GENFIL): Code Generator Generated files
+  at file G:\CROB301\PROJECT\PROJET\Simulation\user_macros.h, line 0, character 0
+ ~user_macros.h
+  at file G:\CROB301\PROJECT\PROJET\Simulation\kcg_imported_types.h, line 0, character 0
+ ~kcg_imported_types.h
+  at file G:\CROB301\PROJECT\PROJET\Simulation\sc2c.log, line 0, character 0
+ ~sc2c.log
+  at file G:\CROB301\PROJECT\PROJET\Simulation\sc2c_integration_files.txt, line 0, character 0
+ ~sc2c_integration_files.txt
+*** Generated Files Information (GENFIL): Type Utils Generated files
+  at file G:\CROB301\PROJECT\PROJET\Simulation\projet_type.h, line 0, character 0
+ ~projet_type.h
+  at file G:\CROB301\PROJECT\PROJET\Simulation\projet_type.c, line 0, character 0
+ ~projet_type.c
+*** Generated Files Information (GENFIL): Mapping Utils Generated files
+  at file G:\CROB301\PROJECT\PROJET\Simulation\projet_mapping.h, line 0, character 0
+ ~projet_mapping.h
+  at file G:\CROB301\PROJECT\PROJET\Simulation\projet_mapping.c, line 0, character 0
+ ~projet_mapping.c
+*** Generated Files Information (GENFIL): Simulator Generated files
+  at file G:\CROB301\PROJECT\PROJET\Simulation\projet_interface.h, line 0, character 0
+ ~projet_interface.h
+  at file G:\CROB301\PROJECT\PROJET\Simulation\projet_interface.c, line 0, character 0
+ ~projet_interface.c
+  at file G:\CROB301\PROJECT\PROJET\Simulation\projet_dll.c, line 0, character 0
+ ~projet_dll.c
+*** Generated Files Information (GENFIL): Build Generated files
+  at file G:\CROB301\PROJECT\PROJET\Simulation\Makefile_win64, line 0, character 0
+ ~Makefile_win64
+  at file G:\CROB301\PROJECT\PROJET\Simulation\Doors.dll, line 0, character 0
+ ~Doors.dll
+  at file G:\CROB301\PROJECT\PROJET\Simulation\Doors.exe, line 0, character 0
+ ~Doors.exe
+$************** ANSYS(R) SCADE Suite(R) - SCADETOC - Version Student 2021 R1 (build 20201118T195152) **************
+** Generation date: 2021-03-14T17:52:38
+** sc2c.log
+*************************************************************$
